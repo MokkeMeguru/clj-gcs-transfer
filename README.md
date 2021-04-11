@@ -21,3 +21,8 @@ lein run -- --port 3030 --bucket-name <your google cloud storage bucket name>
 ```sh
 lein run -- --help
 ```
+
+## More info
+
+- Github Pages
+  [https://mokkemeguru.github.io/clj-gcs-transfer/](https://mokkemeguru.github.io/clj-gcs-transfer/)
