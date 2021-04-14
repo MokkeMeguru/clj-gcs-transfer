@@ -1,13 +1,7 @@
 (ns clj-gcs-transfer.infrastructure.gcs-image-db.core
-  (:require [taoensso.timbre :as timbre]
-            [clojure.spec.alpha :as s]
-            [orchestra.spec.test :as st]
-            [clojure.java.io :as io])
-  (:import [com.google.cloud.storage Bucket BucketInfo Storage StorageOptions
-            Storage$BucketGetOption
-            Storage$BucketListOption
-            Bucket$Builder
-            StorageException]))
+  (:require [clojure.spec.alpha :as s]
+            [taoensso.timbre :as timbre])
+  (:import [com.google.cloud.storage Bucket Storage Storage$BucketGetOption StorageException StorageOptions]))
 
 ;; data specs
 (s/def ::storage-options (partial instance? StorageOptions))

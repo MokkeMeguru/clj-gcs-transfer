@@ -2,18 +2,13 @@
   "The implementation of pics-service as GCS"
   (:require [clj-gcs-transfer.interface.gateway.image-db.pics-service :refer [Pics]]
             [clojure.spec.alpha :as s]
-            [clojure.java.io :as io]
-            [clj-gcs-transfer.utils :refer [err->>]]
             [taoensso.timbre :as timbre])
-  (:import [java.awt.image BufferedImage]
-           [java.io FileInputStream]
-           [com.google.cloud.storage BlobId Storage$BlobListOption BlobInfo
-            Blob
-            Storage$BlobWriteOption
-            Blob$BlobSourceOption]
-           [com.google.common.io ByteStreams]
-           [javax.imageio ImageIO]
-           [java.nio.channels Channels]))
+  (:import [com.google.cloud.storage Blob Blob$BlobSourceOption BlobId BlobInfo Storage$BlobListOption Storage$BlobWriteOption]
+           com.google.common.io.ByteStreams
+           java.awt.image.BufferedImage
+           java.io.FileInputStream
+           java.nio.channels.Channels
+           javax.imageio.ImageIO))
 
 (s/def :temp-file/prefix (s/and string? #(< 3 (count %))))
 (s/def :temp-file/suffix (s/and string?))
